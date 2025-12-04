@@ -145,30 +145,3 @@ suspension_setup_evaluator/
 * Fără scurgere de informație (data leakage)
 * Statistici calculate DOAR pe train și aplicate pe celelalte seturi
 
-### 4.4 Salvarea rezultatelor preprocesării
-
-* Date preprocesate în `data/processed/`
-* Seturi train/val/test în foldere dedicate
-* Parametrii de preprocesare în `config/preprocessing_config.*` (opțional)
-
----
-
-##  5. Fișiere Generate în Această Etapă
-
-* `data/raw/` – date brute
-* `data/processed/` – date curățate & transformate
-* `data/train/`, `data/validation/`, `data/test/` – seturi finale
-* `src/preprocessing/` – codul de preprocesare
-* `data/README.md` – descrierea dataset-ului
-
----
-
-##  6. Stare Etapă (de completat de student)
-
-- [ ] Structură repository configurată
-- [ ] Dataset analizat (EDA realizată)
-- [ ] Date preprocesate
-- [ ] Seturi train/val/test generate
-- [ ] Documentație actualizată în README + `data/README.md`
-
----

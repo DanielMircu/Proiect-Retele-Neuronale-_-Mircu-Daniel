@@ -38,7 +38,8 @@ Completați in acest readme tabelul următor cu **minimum 2-3 rânduri** care le
 
 | **Nevoie reală concretă** | **Cum o rezolvă SIA-ul vostru** | **Modul software responsabil** |
 |---------------------------|--------------------------------|--------------------------------|
-| Clasificare automata a telemetriei monopostului | Clasificare + recomandare in sub 30 secunde | RN + Web Service |
+| Optimizarea setup-ului mecanic: Dificultatea de a traduce rapid feedback-ul pilotului despre instabilitate (sub/supravirare) în modificări concrete ale suspensiei. |Analiza telemetriei suspensiei pentru clasificarea comportamentului (Sub vs. Supravirare) și generarea listei de ajustări în sub 30 secunde de la oprire. |Modul Dinamică Vehicul (RN Clasificare + Recommender System) |
+|Validarea datelor brute: Zgomotul din senzorii de cursă suspensie face dificilă interpretarea manuală a histogramelor.|Preprocesarea și curățarea semnalului în timp real, eliminând outlierii cu o rată de succes de 80%, pentru a alimenta corect rețeaua neuronală.|Modul Ingestie & Procesare (Data Cleaning Pipeline)|
 
 ---
 

@@ -195,40 +195,30 @@ Toate cele 3 module trebuie să **pornească și să ruleze fără erori** la pr
 **Verificare consistență cu Etapa 3:**
 
 ```
-proiect-rn-[nume-prenume]/
+proiect-rn-MIRCU_Daniel/
 ├── data/
 │   ├── raw/
-│   ├── processed/
-│   ├── generated/  # Date originale
-│   ├── train/
-│   ├── validation/
-│   └── test/
+│   ├── processed and manually classified/
 ├── src/
 │   ├── data_acquisition/
-│   ├── preprocessing/  # Din Etapa 3
+│   ├── preprocessing/ 
 │   ├── neural_network/
 │   └── app/  # UI schelet
+|   └── requirements.txt 
 ├── docs/
 │   ├── state_machine.*           #(state_machine.png sau state_machine.pptx sau state_machine.drawio)
-│   └── [alte dovezi]
-├── models/  # Untrained model
-├── config/
+│   └── setup1.png
+│   └── setup2.png
+│   └── setup3.png
+│   └── setup4.png
+│   └── setup5.png
+│   └── setup6.png
+│   └── README_Etapa3.md              # (deja existent)
+│   └── README_Etapa4_Arhitectura_SIA.md              # ← acest fișier completat (în rădăcină)
 ├── README.md
-├── README_Etapa3.md              # (deja existent)
-├── README_Etapa4_Arhitectura_SIA.md              # ← acest fișier completat (în rădăcină)
-└── requirements.txt  # Sau .lvproj
-```
 
-**Diferențe față de Etapa 3:**
-- Adăugat `data/generated/` pentru contribuția dvs originală
-- Adăugat `src/data_acquisition/` - MODUL 1
-- Adăugat `src/neural_network/` - MODUL 2
-- Adăugat `src/app/` - MODUL 3
-- Adăugat `models/` pentru model neantrenat
-- Adăugat `docs/state_machine.png` - OBLIGATORIU
-- Adăugat `docs/screenshots/` pentru demonstrație UI
 
----
+
 
 ## Checklist Final – Bifați Totul Înainte de Predare
 
@@ -236,10 +226,10 @@ proiect-rn-[nume-prenume]/
 - [x] Tabelul Nevoie → Soluție → Modul complet (minimum 2 rânduri cu exemple concrete completate in README_Etapa4_Arhitectura_SIA.md)
 - [x] Declarație contribuție 40% date originale completată în README_Etapa4_Arhitectura_SIA.md
 - [x] Cod generare/achiziție date funcțional și documentat
-- [ ] Dovezi contribuție originală: grafice + log + statistici în `docs/`
-- [ ] Diagrama State Machine creată și salvată în `docs/state_machine.*`
-- [ ] Legendă State Machine scrisă în README_Etapa4_Arhitectura_SIA.md (minimum 1-2 paragrafe cu justificare)
-- [ ] Repository structurat conform modelului de mai sus (verificat consistență cu Etapa 3)
+- [x] Dovezi contribuție originală: grafice + log + statistici în `docs/`
+- [x] Diagrama State Machine creată și salvată în `docs/state_machine.*`
+- [x] Legendă State Machine scrisă în README_Etapa4_Arhitectura_SIA.md (minimum 1-2 paragrafe cu justificare)
+- [x] Repository structurat conform modelului de mai sus (verificat consistență cu Etapa 3)
 
 ### Modul 1: Data Logging / Acquisition
 - [x] Cod rulează fără erori (`python src/data_acquisition/...` sau echivalent LabVIEW)
@@ -252,13 +242,13 @@ proiect-rn-[nume-prenume]/
 - [x] Fișiere în `data/generated/` conform structurii
 
 ### Modul 2: Neural Network
-- [ ] Arhitectură RN definită și documentată în cod (docstring detaliat) - versiunea inițială 
-- [ ] README în `src/neural_network/` cu detalii arhitectură curentă
+- [x] Arhitectură RN definită și documentată în cod (docstring detaliat) - versiunea inițială 
+- [x] README în `src/neural_network/` cu detalii arhitectură curentă
 
 ### Modul 3: Web Service / UI
-- [ ] Propunere Interfață ce pornește fără erori (comanda de lansare testată)
-- [ ] Screenshot demonstrativ în `docs/screenshots/ui_demo.png`
-- [ ] README în `src/app/` cu instrucțiuni lansare (comenzi exacte)
+- [x] Propunere Interfață ce pornește fără erori (comanda de lansare testată)
+- [x] Screenshot demonstrativ în `docs/screenshots/ui_demo.png`
+- [x] README în `src/app/` cu instrucțiuni lansare (comenzi exacte)
 
 ---
 

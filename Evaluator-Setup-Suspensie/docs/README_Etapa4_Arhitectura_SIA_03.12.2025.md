@@ -285,23 +285,23 @@ proiect-rn-[nume-prenume]/
 ## Checklist Final – Bifați Totul Înainte de Predare
 
 ### Documentație și Structură
-- [ ] Tabelul Nevoie → Soluție → Modul complet (minimum 2 rânduri cu exemple concrete completate in README_Etapa4_Arhitectura_SIA.md)
-- [ ] Declarație contribuție 40% date originale completată în README_Etapa4_Arhitectura_SIA.md
-- [ ] Cod generare/achiziție date funcțional și documentat
+- [x] Tabelul Nevoie → Soluție → Modul complet (minimum 2 rânduri cu exemple concrete completate in README_Etapa4_Arhitectura_SIA.md)
+- [x] Declarație contribuție 40% date originale completată în README_Etapa4_Arhitectura_SIA.md
+- [x] Cod generare/achiziție date funcțional și documentat
 - [ ] Dovezi contribuție originală: grafice + log + statistici în `docs/`
 - [ ] Diagrama State Machine creată și salvată în `docs/state_machine.*`
 - [ ] Legendă State Machine scrisă în README_Etapa4_Arhitectura_SIA.md (minimum 1-2 paragrafe cu justificare)
 - [ ] Repository structurat conform modelului de mai sus (verificat consistență cu Etapa 3)
 
 ### Modul 1: Data Logging / Acquisition
-- [ ] Cod rulează fără erori (`python src/data_acquisition/...` sau echivalent LabVIEW)
-- [ ] Produce minimum 40% date originale din dataset-ul final
-- [ ] CSV generat în format compatibil cu preprocesarea din Etapa 3
+- [x] Cod rulează fără erori (`python src/data_acquisition/...` sau echivalent LabVIEW)
+- [x] Produce minimum 40% date originale din dataset-ul final
+- [x] CSV generat în format compatibil cu preprocesarea din Etapa 3
 - [ ] Documentație în `src/data_acquisition/README.md` cu:
-  - [ ] Metodă de generare/achiziție explicată
-  - [ ] Parametri folosiți (frecvență, durată, zgomot, etc.)
-  - [ ] Justificare relevanță date pentru problema voastră
-- [ ] Fișiere în `data/generated/` conform structurii
+  - [x] Metodă de generare/achiziție explicată
+  - [x] Parametri folosiți (frecvență, durată, zgomot, etc.)
+  - [x] Justificare relevanță date pentru problema voastră
+- [x] Fișiere în `data/generated/` conform structurii
 
 ### Modul 2: Neural Network
 - [ ] Arhitectură RN definită și documentată în cod (docstring detaliat) - versiunea inițială 

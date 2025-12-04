@@ -38,46 +38,17 @@ Completați in acest readme tabelul următor cu **minimum 2-3 rânduri** care le
 
 | **Nevoie reală concretă** | **Cum o rezolvă SIA-ul vostru** | **Modul software responsabil** |
 |---------------------------|--------------------------------|--------------------------------|
-| Ex: Detectarea automată a fisurilor în suduri robotizate | Clasificare imagine radiografică → alertă operator în < 2 secunde | RN + Web Service |
-| Ex: Predicția uzurii lagărelor în turbine eoliene | Analiză vibrații în timp real → alertă preventivă cu 95% acuratețe | Data Logging + RN + UI |
-| Ex: Optimizarea traiectoriilor robotului mobil în depozit | Predicție timp traversare → reducere 20% consum energetic | RN + Control Module |
-| [Completați cu proiectul vostru] | | |
-| [Completați cu proiectul vostru] | | |
-
-**Instrucțiuni:**
-- Fiți concreti (nu vagi): "detectare fisuri sudură" ✓, "îmbunătățire proces" ✗
-- Specificați metrici măsurabile: "< 2 secunde", "> 95% acuratețe", "reducere 20%"
-- Legați fiecare nevoie de modulele software pe care le dezvoltați
+| Clasificare automata a telemetriei monopostului | Clasificare + recomandare in sub 30 secunde | RN + Web Service |
 
 ---
 
 ### 2. Contribuția Voastră Originală la Setul de Date – MINIM 40% din Totalul Observațiilor Finale
 
-**Regula generală:** Din totalul de **N observații finale** în `data/processed/`, **minimum 40%** trebuie să fie **contribuția voastră originală**.
 
-#### Cum se calculează 40%:
 
-**Exemplu 1 - Dataset DOAR public în Etapa 3:**
+**Dataset complet original:**
 ```
-Etapa 3: Ați folosit 10,000 samples dintr-o sursa externa (ex: Kaggle)
-Etapa 4: Trebuie să generați/achiziționați date astfel încât:
-  
-Opțiune A: Adăugați 6,666 samples noi → Total 16,666 (6,666/16,666 = 40%)
-Opțiune B: Păstrați 6,000 publice + 4,000 generate → Total 10,000 (4,000/10,000 = 40%)
-```
-
-**Exemplu 2 - Dataset parțial original în Etapa 3:**
-```
-Etapa 3: Ați avut deja 3,000 samples generate + 7,000 publice = 10,000 total
-Etapa 4: 3,000 samples existente numără ca "originale"
-        Dacă 3,000/10,000 = 30% < 40% → trebuie să generați încă ~1,700 samples
-        pentru a ajunge la 4,700/10,000 = 47% > 40% ✓
-```
-
-**Exemplu 3 - Dataset complet original:**
-```
-Etapa 3-4: Generați toate datele (simulare, senzori proprii, etichetare manuală - varianta recomandata)
-           → 100% original ✓ (depășește cu mult 40% - FOARTE BINE!)
+Sistem de achizitie de date reale de la senzori
 ```
 
 #### Tipuri de contribuții acceptate (exemple din inginerie):

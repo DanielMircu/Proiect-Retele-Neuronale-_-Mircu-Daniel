@@ -1,0 +1,78 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.16 Chrome/132.0.6834.196 Electron/34.2.0 Safari/537.36" version="26.0.16">
+  <diagram name="Page-1" id="-_I6s3PNpSssv9KIaAz1">
+    <mxGraphModel dx="1276" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JsPZCd8igkBNh6j2wenw-2" value="IDLE&#xa;(Waiting for User)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="260" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-4" value="UPLOAD CSV&#xa;(Select File)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="260" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-5" value="User Action" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-2" target="JsPZCd8igkBNh6j2wenw-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-6" value="Check&#xa;Columns?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="270" y="300" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-4" target="JsPZCd8igkBNh6j2wenw-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-8" value="ERROR_FORMAT&#xa;(Missing Data)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="440" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-9" value="Invalid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#FF0000;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-6" target="JsPZCd8igkBNh6j2wenw-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-10" value="Retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-8" target="JsPZCd8igkBNh6j2wenw-2">
+          <mxGeometry x="-0.7" y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="500" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-11" value="PROCESSING PIPELINE" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="260" y="440" width="180" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-12" value="PREPROCESS&#xa;(Filter &amp; Normalize)" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="JsPZCd8igkBNh6j2wenw-11">
+          <mxGeometry y="30" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-13" value="SEGMENTATION&#xa;(Sliding Window)" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="JsPZCd8igkBNh6j2wenw-11">
+          <mxGeometry y="80" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-14" value="RN_INFERENCE&#xa;(Batch Prediction)" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="JsPZCd8igkBNh6j2wenw-11">
+          <mxGeometry y="130" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-15" value="Valid Format" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#009900;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-6" target="JsPZCd8igkBNh6j2wenw-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-16" value="AGGREGATE RESULTS&#xa;(Calc Statistics)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="680" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-11" target="JsPZCd8igkBNh6j2wenw-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-18" value="DISPLAY DASHBOARD&#xa;&amp; RECOMMENDATIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="500" y="680" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-16" target="JsPZCd8igkBNh6j2wenw-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-20" value="Next File" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="JsPZCd8igkBNh6j2wenw-18" target="JsPZCd8igkBNh6j2wenw-2">
+          <mxGeometry x="-0.6" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="690" y="710" />
+              <mxPoint x="690" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JsPZCd8igkBNh6j2wenw-21" value="Note: CSV Files source = SD Card" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;size=15;align=left;" vertex="1" parent="1">
+          <mxGeometry x="420" y="200" width="110" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

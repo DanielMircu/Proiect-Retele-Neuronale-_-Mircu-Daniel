@@ -79,17 +79,20 @@ Scrieți clar în acest README (Secțiunea 2):
 **Observații originale:** 100%
 
 **Tipul contribuției:**
-[X] Date generate prin simulare fizică  
-[ ] Date achiziționate cu senzori proprii  
+[ ] Date generate prin simulare fizică  
+[x] Date achiziționate cu senzori proprii  
 [ ] Etichetare/adnotare manuală  
 [ ] Date sintetice prin metode avansate  
 
 **Descriere detaliată:**
-[Explicați în 2-3 paragrafe cum ați generat datele, ce metode ați folosit, 
-de ce sunt relevante pentru problema voastră, cu ce parametri ați rulat simularea/achiziția]
+Sistem hardware de achiziție de date montat direct pe șasiul vehiculului. Sistemul este bazat pe un microcontroller **Arduino** care interoghează la o frecvență de **50Hz** următorii senzori fizici:
+1.  **4x Potențiometre Liniare:** Montate pe amortizoare pentru a măsura cursa suspensiei în timp real.
+2.  **1x IMU (Accelerometru/Giroscop):** Pentru a corela mișcarea suspensiei cu forțele G laterale și longitudinale.
 
-**Locația codului:** `src/data_acquisition/[numele_scriptului]`
-**Locația datelor:** `data/generated/` sau `data/raw/original/`
+Datele au fost colectate în sesiuni reale de testare pe circuit, pe un circuit specific competitiei pentru a induce stări de subvirare și supravirare. Setul de date este relevant deoarece conține **zgomotul real al senzorilor** și vibrațiile mecanice ale șasiului, provocări pe care simulările nu le reproduc perfect.
+
+**Locația codului:** `src/app.py`
+**Locația datelor:** `data/`
 
 **Dovezi:**
 - Grafic comparativ: `docs/generated_vs_real.png`

@@ -58,10 +58,15 @@ Alegeți UNA sau MAI MULTE dintre variantele de mai jos și **demonstrați clar 
 
 | **Tip contribuție** | **Exemple concrete din inginerie** | **Dovada minimă cerută** |
 |---------------------|-------------------------------------|--------------------------|
-| **Date generate prin simulare fizică** | • Traiectorii robot în Gazebo<br>• Vibrații motor cu zgomot aleator calibrat<br>• Consumuri energetice proces industrial simulat | Cod Python/LabVIEW funcțional + grafice comparative (simulat vs real din literatură) + justificare parametri |
-| **Date achiziționate cu senzori proprii** | • 500-2000 măsurători accelerometru pe motor<br>• 100-1000 imagini capturate cu cameră montată pe robot<br>• 200-1000 semnale GPS/IMU de pe platformă mobilă<br>• Temperaturi/presiuni procesate din Arduino/ESP32 | Foto setup experimental + CSV-uri produse + descriere protocol achiziție (frecvență, durata, condiții) |
-| **Etichetare/adnotare manuală** | • Etichetat manual 1000+ imagini defecte sudură<br>• Anotat 500+ secvențe video cu comportamente robot<br>• Clasificat manual 2000+ semnale vibrații (normal/anomalie)<br>• Marcat manual 1500+ puncte de interes în planuri tehnice | Fișier Excel/JSON cu labels + capturi ecran tool etichetare + log timestamp-uri lucru |
-| **Date sintetice prin metode avansate** | • Simulări FEM/CFD pentru date dinamice proces | Cod implementare metodă + exemple before/after + justificare hiperparametri + validare pe subset real |
+
+| **Date achiziționate cu senzori proprii** | • 2000+ intrări de telemetrie sincronizată: deplasare suspensie (4 colțuri) + date IMU (G-Lateral/Longitudinal).
+
+
+• Achiziție realizată folosind microcontroller (Arduino) conectat la potențiometre liniare.
+
+
+• Etichetarea manuală a datelor pentru stările: Subvirare / Supravirare / Neutru. |Folder /data: Fișiere .csv |
+
 
 #### Declarație obligatorie în README:
 
@@ -70,8 +75,8 @@ Scrieți clar în acest README (Secțiunea 2):
 ```markdown
 ### Contribuția originală la setul de date:
 
-**Total observații finale:** [N] (după Etapa 3 + Etapa 4)
-**Observații originale:** [M] ([X]%)
+**Total observații finale:** 30000
+**Observații originale:** 100%
 
 **Tipul contribuției:**
 [X] Date generate prin simulare fizică  

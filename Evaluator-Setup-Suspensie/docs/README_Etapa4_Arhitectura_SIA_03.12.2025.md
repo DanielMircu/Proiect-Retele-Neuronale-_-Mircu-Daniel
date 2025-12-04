@@ -95,24 +95,8 @@ Datele au fost colectate în sesiuni reale de testare pe circuit, pe un circuit 
 **Locația datelor:** `data/`
 
 **Dovezi:**
-- Grafic comparativ: `docs/generated_vs_real.png`
-- Setup experimental: `docs/acquisition_setup.jpg` (dacă aplicabil)
-- Tabel statistici: `docs/data_statistics.csv`
+- Setup experimental: `docs/setup.jpg`
 ```
-
-#### Exemple pentru "contribuție originală":
--Simulări fizice realiste cu ecuații și parametri justificați  
--Date reale achiziționate cu senzori proprii (setup documentat)  
--Augmentări avansate cu justificare fizică (ex: simulare perspective camera industrială)  
-
-
-#### Atenție - Ce NU este considerat "contribuție originală":
-
-- Augmentări simple (rotații, flips, crop) pe date publice  
-- Aplicare filtre standard (Gaussian blur, contrast) pe imagini publice  
-- Normalizare/standardizare (aceasta e preprocesare, nu generare)  
-- Subset dintr-un dataset public (ex: selectat 40% din ImageNet)
-
 
 ---
 

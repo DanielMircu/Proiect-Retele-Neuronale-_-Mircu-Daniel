@@ -45,8 +45,6 @@ Completați in acest readme tabelul următor cu **minimum 2-3 rânduri** care le
 
 ### 2. Contribuția Voastră Originală la Setul de Date – MINIM 40% din Totalul Observațiilor Finale
 
-
-
 **Dataset complet original:**
 ```
 Sistem de achizitie de date reale de la senzori
@@ -110,90 +108,40 @@ Datele au fost colectate în sesiuni reale de testare pe circuit, pe un circuit 
 
 **Stări tipice pentru un SIA:**
 ```
-IDLE → ACQUIRE_DATA → PREPROCESS → INFERENCE → DISPLAY/ACT → LOG → [ERROR] → STOP
-                ↑______________________________________________|
+IDLE → UPLOAD_CSV → CHECK → PROCESSING → AGGREGATE → DISPLAY
+↑         ↑____ERROR__|                                 |
+|_______________________________________________________|
 ```
-
-**Exemple concrete per domeniu de inginerie:**
-
-#### A. Monitorizare continuă proces industrial (vibrații motor, temperaturi, presiuni):
-```
-IDLE → START_ACQUISITION → COLLECT_SENSOR_DATA → BUFFER_CHECK → 
-PREPROCESS (filtrare, FFT) → RN_INFERENCE → THRESHOLD_CHECK → 
-  ├─ [Normal] → LOG_RESULT → UPDATE_DASHBOARD → COLLECT_SENSOR_DATA (loop)
-  └─ [Anomalie] → TRIGGER_ALERT → NOTIFY_OPERATOR → LOG_INCIDENT → 
-                  COLLECT_SENSOR_DATA (loop)
-       ↓ [User stop / Emergency]
-     SAFE_SHUTDOWN → STOP
-```
-
-#### B. Clasificare imagini defecte producție (suduri, suprafețe, piese):
-```
-IDLE → WAIT_TRIGGER (senzor trecere piesă) → CAPTURE_IMAGE → 
-VALIDATE_IMAGE (blur check, brightness) → 
-  ├─ [Valid] → PREPROCESS (resize, normalize) → RN_INFERENCE → 
-              CLASSIFY_DEFECT → 
-                ├─ [OK] → LOG_OK → CONVEYOR_PASS → IDLE
-                └─ [DEFECT] → LOG_DEFECT → TRIGGER_REJECTION → IDLE
-  └─ [Invalid] → ERROR_IMAGE_QUALITY → RETRY_CAPTURE (max 3×) → IDLE
-       ↓ [Shift end]
-     GENERATE_REPORT → STOP
-```
-
-#### C. Predicție traiectorii robot mobil (AGV, AMR în depozit):
-```
-IDLE → LOAD_MAP → RECEIVE_TARGET → PLAN_PATH → 
-VALIDATE_PATH (obstacle check) →
-  ├─ [Clear] → EXECUTE_SEGMENT → ACQUIRE_SENSORS (LIDAR, IMU) → 
-              RN_PREDICT_NEXT_STATE → UPDATE_TRAJECTORY → 
-                ├─ [Target reached] → STOP_AT_TARGET → LOG_MISSION → IDLE
-                └─ [In progress] → EXECUTE_SEGMENT (loop)
-  └─ [Obstacle detected] → REPLAN_PATH → VALIDATE_PATH
-       ↓ [Emergency stop / Battery low]
-     SAFE_STOP → LOG_STATUS → STOP
-```
-
-#### D. Predicție consum energetic (turbine eoliene, procese batch):
-```
-IDLE → LOAD_HISTORICAL_DATA → ACQUIRE_CURRENT_CONDITIONS 
-(vânt, temperatură, demand) → PREPROCESS_FEATURES → 
-RN_FORECAST (24h ahead) → VALIDATE_FORECAST (sanity checks) →
-  ├─ [Valid] → DISPLAY_FORECAST → UPDATE_CONTROL_STRATEGY → 
-              LOG_PREDICTION → WAIT_INTERVAL (1h) → 
-              ACQUIRE_CURRENT_CONDITIONS (loop)
-  └─ [Invalid] → ERROR_FORECAST → USE_FALLBACK_MODEL → LOG_ERROR → 
-                ACQUIRE_CURRENT_CONDITIONS (loop)
-       ↓ [User request report]
-     GENERATE_DAILY_REPORT → STOP
-```
-
-**Notă pentru proiecte simple:**
-Chiar dacă aplicația voastră este o clasificare simplă (user upload → classify → display), trebuie să modelați fluxul ca un State Machine. Acest exercițiu vă învață să gândiți modular și să anticipați toate stările posibile (inclusiv erori).
 
 **Legendă obligatorie (scrieți în README):**
 ```markdown
 ### Justificarea State Machine-ului ales:
 
-Am ales arhitectura [descrieți tipul: monitorizare continuă / clasificare la senzor / 
-predicție batch / control în timp real] pentru că proiectul nostru [explicați nevoia concretă 
-din tabelul Secțiunea 1].
+Am ales arhitectura de tip Batch Processing, deoarece proiectul nostru se bazează pe date stocate local pe un Card SD. Această abordare este standard în motorsportul semi-profesionist, unde telemetria live este instabilă sau prea costisitoare. Analiza se face la boxe, după ce mașina revine de pe pistă.
 
-Stările principale sunt:
-1. [STARE_1]: [ce se întâmplă aici - ex: "achiziție 1000 samples/sec de la accelerometru"]
-2. [STARE_2]: [ce se întâmplă aici - ex: "calcul FFT și extragere 50 features frecvență"]
-3. [STARE_3]: [ce se întâmplă aici - ex: "inferență RN cu latență < 50ms"]
+Stările principale:
+
+UPLOAD & VALIDATE: Verificarea critică a structurii fișierului CSV. Dacă senzorii au fost deconectați (vibrații) și lipsesc coloane, sistemul trebuie să refuze procesarea (ERROR_FORMAT) pentru a nu oferi recomandări greșite.
+
+PROCESSING_PIPELINE: Include filtrarea zgomotului electric și segmentarea turei în ferestre glisante (Sliding Windows) pentru a captura dinamica mașinii în viraje.
+
+RN_INFERENCE (Batch): Rețeaua neuronală analizează secvențial toate ferestrele extrase, clasificând comportamentul mașinii.
+
+REPORTING: Agregarea rezultatelor (ex: "70% Supravirare") și afișarea dashboard-ului care ghidează inginerul în modificarea suspensiei.
 ...
 
-Tranzițiile critice sunt:
-- [STARE_A] → [STARE_B]: [când se întâmplă - ex: "când buffer-ul atinge 1024 samples"]
-- [STARE_X] → [ERROR]: [condiții - ex: "când senzorul nu răspunde > 100ms"]
+### Detalierea Tranzițiilor și a Stărilor de Eroare
 
-Starea ERROR este esențială pentru că [explicați ce erori pot apărea în contextul 
-aplicației voastre industriale - ex: "senzorul se poate deconecta în mediul industrial 
-cu vibrații și temperatură variabilă, trebuie să gestionăm reconnect automat"].
+**Tranzițiile critice sunt:**
+- **[CHECK_COLUMNS] → [PREPROCESS]:** Se execută automat imediat ce validatorul confirmă prezența tuturor coloanelor obligatorii (ex: `susp_fl`, `acc_y`) în header-ul fișierului CSV încărcat.
+- **[SEGMENTATION] → [RN_INFERENCE]:** Se declanșează după ce întregul fișier a fost parcurs și "tăiat" în ferestre glisante (ex: 200 samples cu overlap 50%),
+- **[CHECK_COLUMNS] → [ERROR_FORMAT]:** Se activează dacă fișierul este gol, corupt sau dacă lipsesc datele de la un senzor critic
 
-Bucla de feedback [dacă există] funcționează astfel: [ex: "rezultatul inferenței 
-actualizează parametrii controlerului PID pentru reglarea vitezei motorului"].
+**Starea ERROR este esențială pentru că:**
+În motorsport, mediul de achiziție este extrem de ostil (vibrații mecanice severe, temperaturi ridicate, șocuri). Este frecvent ca un potențiometru să se deconecteze intermitent sau ca scrierea pe cardul SD să fie întreruptă brusc la oprirea motorului. Aplicația trebuie să gestioneze robust aceste fișiere incomplete și să informeze inginerul că tura respectivă nu poate fi analizată, evitând astfel recomandările de setup bazate pe date false.
+
+**Bucla de feedback (Human-in-the-Loop):**
+Deoarece sistemul este unul de asistență decizională (nu de control automat), bucla se închide prin **Inginerul de Cursă**. Rezultatul inferenței (ex: "70% Supravirare") duce la o acțiune fizică mecanică. Datele înregistrate în următoarea sesiune de pistă (Run 2) sunt reintroduse în sistem pentru a valida dacă modificarea a echilibrat mașina.
 ```
 
 ---

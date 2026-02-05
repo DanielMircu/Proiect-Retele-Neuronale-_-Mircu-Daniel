@@ -1,0 +1,44 @@
+# Configurare model optimizat - Etapa 6 FINAL
+
+# Arhitectura MLP
+model:
+  type: "SuspensionClassifier"
+  input_size: 60
+  hidden_sizes: [32, 16]
+  output_size: 2
+  dropout_rate: 0.3
+  activation: "ReLU"
+
+# Antrenare
+training:
+  epochs: 30
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: "Adam"
+  loss_function: "CrossEntropyLoss"
+  weight_decay: 0.0
+  
+# Validare si Test
+validation:
+  val_split: 0.2
+  random_state: 42
+  early_stopping: true
+  patience: 5
+
+# Preprocesare date
+preprocessing:
+  filter_type: "butterworth_lowpass"
+  cutoff_freq_hz: 10
+  normalization: "zscore"
+  window_size: 200
+  window_overlap: 0.5
+  n_features_extracted: 60
+
+# Metrici tinta
+targets:
+  min_accuracy: 0.70
+  min_f1_oversteer: 0.65
+  max_latency_ms: 10.0
+
+# Notite
+notes: "Model baseline stabil cu CrossEntropy simplu. Weighted Loss disponibil ca directie viitoare."

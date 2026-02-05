@@ -1,0 +1,6 @@
+experiment,modification,accuracy,f1_oversteer,recall_oversteer,notes
+FINAL,MLP [32 16] LR=0.001 Batch=32 CrossEntropy simplu,0.82,0.45,0.42,Model selectat - stabil si usor
+Exp1,Arhitectura Deep [64 32 16],0.84,0.52,0.55,Imbunatatire minora dar risc overfitting
+Exp2,Batch Size 32->16,0.83,0.55,0.58,Generalizare mai buna antrenare mai lenta
+Exp3_testare,Class Weights (1:4) - Teoretic,0.81,0.78,0.85,Trade-off interesant NU implementat
+Exp4,LR Scheduler StepLR,0.85,0.60,0.62,Convergenta fina dar complexitate crescuta

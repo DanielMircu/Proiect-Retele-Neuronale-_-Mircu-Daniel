@@ -1,0 +1,40 @@
+{
+  "total_test_samples": 2000,
+  "true_negatives": 1640,
+  "false_positives": 120,
+  "false_negatives": 120,
+  "true_positives": 120,
+  "confusion_matrix": {
+    "understeer_correct": 1640,
+    "understeer_misclassified_as_oversteer": 120,
+    "oversteer_correct": 120,
+    "oversteer_misclassified_as_understeer": 120
+  },
+  "top_error_categories": [
+    {
+      "rank": 1,
+      "description": "Viraj pe suprafata umed",
+      "prediction": "Normal",
+      "actual": "Oversteer",
+      "cause": "Dinamica lenta forta sub threshold",
+      "frequency": 45
+    },
+    {
+      "rank": 2,
+      "description": "Denivelare puternica",
+      "prediction": "Oversteer",
+      "actual": "Normal",
+      "cause": "Spike pe axa Z interpretat ca rotatie",
+      "frequency": 38
+    },
+    {
+      "rank": 3,
+      "description": "Eveniment scurt <50ms",
+      "prediction": "Normal",
+      "actual": "Oversteer",
+      "cause": "Pierdut in windowing medie",
+      "frequency": 22
+    }
+  ],
+  "recommendation": "Viitoare optimizari: Weighted Loss SMOTE ajustare threshold"
+}

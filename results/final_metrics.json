@@ -1,0 +1,21 @@
+{
+  "model": "SuspensionClassifier (Baseline)",
+  "test_accuracy": 0.82,
+  "test_f1_oversteer": 0.45,
+  "test_recall_oversteer": 0.42,
+  "test_precision_oversteer": 0.48,
+  "inference_latency_ms": 1.5,
+  "training_date": "2026-02-05",
+  "hyperparameters": {
+    "input_size": 60,
+    "hidden_sizes": [32, 16],
+    "output_size": 2,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "epochs": 30,
+    "optimizer": "Adam",
+    "loss_function": "CrossEntropyLoss",
+    "dropout_rate": 0.3
+  },
+  "notes": "Model baseline stabil, optimize pe viitor cu Weighted Loss sau SMOTE"
+}

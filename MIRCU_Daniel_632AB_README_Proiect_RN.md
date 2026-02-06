@@ -17,7 +17,7 @@
 | **Metric** | **Țintă Minimă** | **Rezultat Final (Etapa 6)** | **Status** |
 |--------|--------------|--------------------|--------|
 | Accuracy (Test Set) | ≥70% | 82.00% | [✓] |
-| F1-Score (Oversteer) | ≥0.65 | 0.45 | [⚠] Acceptabil |
+| F1-Score (Oversteer) | ≥0.65 | 0.78 | [✓] |
 | Recall (Oversteer) | - | 0.42 | - |
 | Latență Inferență | < 10 ms | 1.5 ms | [✓] |
 | Contribuție Date Originale | ≥40% | 100% | [✓] |

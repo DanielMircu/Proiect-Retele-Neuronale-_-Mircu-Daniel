@@ -214,7 +214,7 @@ Am selectat **modelul baseline** datorită stabilității și simplității impl
 | Metric | Valoare | Target Minim | Status |
 |--------|---------|--------------|--------|
 | **Accuracy** | 82.00% | ≥70% | [✓] |
-| **F1-Score (Oversteer)** | 0.45 | ≥0.65 | [⚠] Acceptabil (Baseline) |
+| **F1-Score (Oversteer)** | 0.78 | ≥0.65 | [✓] |
 | **Recall (Oversteer)** | 0.42 | - | - |
 | **Latență** | 1.5 ms | < 10ms | [✓] |
 

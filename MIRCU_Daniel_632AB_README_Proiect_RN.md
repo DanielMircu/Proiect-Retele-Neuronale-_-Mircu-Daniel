@@ -187,7 +187,7 @@ Am ales un **MLP (Multi-Layer Perceptron)** deoarece inputul constă în feature
 | Learning Rate | 0.001 | Convergență rapidă și stabilă pentru Adam; LR decay nu a adus beneficii majore. |
 | Batch Size | 32 | Redus de la 64 pentru a ajuta ieșirea din minime locale și generalizare mai bună. |
 | Epochs | 30 | Suficient pentru convergență; monitorizat cu Early Stopping. |
-| Optimizer | Adam | Standardul pentru MLP-uri, gestionează bine gradienții sparși. |
+| Optimizer | Adam | Standardul pentru MLP-uri, gestionează bine gradienții. |
 | Loss Function | CrossEntropy simplu | Convergență stabilă; variant weighted testată în Exp 3 (neimplementată). |
 | Regularizare | Dropout 0.3 | Esențial pentru a preveni overfitting-ul pe dataset-ul de dimensiuni medii. |
 
